@@ -12,6 +12,7 @@ A solution set is:
 
 
 ## Simple O(n3) solution ## this is just for demonstration purpose. done use this.
+## This solution only passed 311 / 313 test cases. 
 
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
