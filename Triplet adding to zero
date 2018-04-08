@@ -43,3 +43,34 @@ class Solution {
 
 
 ## A better solution using Hashing, but still gonnna be quadratic solution. 
+
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        
+        
+       List<List<Integer>> res = new ArrayList<>();
+        Set<Integer> firstNum = new HashSet<>();
+        for (int i = 0; i < nums.length - 2; i++){
+            if (!firstNum.contains(nums[i])) {
+                int sum = -nums[i];
+                Set<Integer> secondNum = new HashSet<>();
+                Set<Integer> thirdNum = new HashSet<>();
+                for (int j = i + 1; j < nums.length; j++){
+                    if (!firstNum.contains(nums[j]) && !thirdNum.contains(nums[j])){
+                        if (secondNum.contains(sum - nums[j])){
+                            res.add(Arrays.asList(nums[i], nums[j], sum - nums[j]));
+                            thirdNum.add(nums[j]);
+                        }
+                        else{
+                            secondNum.add(nums[j]);
+                        }
+                    }
+                }
+                firstNum.add(nums[i]);
+            }
+        }
+        return res;
+        
+    
+    }
+}
