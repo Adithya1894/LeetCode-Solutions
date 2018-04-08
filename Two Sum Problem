@@ -1,0 +1,31 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+       //Declaring and initializing a new array result 
+       int [] result = new int[]{0,0};
+        
+        //checking if the given array is not null
+        if(nums == null|| nums.length<2)
+            return result;
+        
+        //Declaring a new HashMap to store the values of the array
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        //iterating through the array.
+        for(int i=0; i < nums.length; i++){
+            //storing the value of the remaining value in the temporary variable
+            int temp = target - nums[i];
+            //checking if the temp value is already present in the hashmap
+            if(map.containsKey(temp)){
+            //if present, then found the solution
+                result[0] = map.get(temp);
+                result[1] = i;
+                return result;
+            }
+            //else storing this key value pair in the map
+            else{
+                map.put(nums[i], i);
+            }
+        }
+        return result;
+    }
+}
