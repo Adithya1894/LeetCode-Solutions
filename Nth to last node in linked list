@@ -1,0 +1,46 @@
+## find the Nth to last Node in the Linked List. 
+
+#Idea: The idea is to have two pointers, the first one traversing the list by the value of n. 
+#once the second first pointer travells n nodes, we move the second pointer along with the first one.  
+
+/* Structure of node
+class Node
+{
+    int data;
+    Node next;
+    Node(int d) {data = d; next = null; }
+}
+*/
+class GfG
+{
+    int getNthFromLast(Node head, int n)
+    {
+	// Your code here
+	
+  //Assigning the value of head to curr and follower. 
+	Node curr = head;
+	Node follower = head;
+	
+  //checking if the value of the curr pointer is null, if it is null return -1.
+	if(curr == null)
+	    return -1;
+	//traversing the linked list by the value of n.
+	for(int i = 0; i < n; i++)
+	{
+    //advancing the value of current to current.next. 
+	    curr = curr.next;
+	    
+	}
+  //traversing till the current value is not null. 
+	while(curr!=null){
+    //advancing both the pointers. 
+	    curr = curr.next;
+	    follower = follower.next;
+	}
+	  
+    //returning the data value of the node. 
+	return follower.data;
+	
+    }
+}
+	
