@@ -1,0 +1,37 @@
+## Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+## The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
+
+
+
+
+The idea is simple, just convert the string to char array, and then when ever we encounter a left bracket, paranthesis or flower bracket
+
+just push the right equivalent to the stack. and then once we encounter the left one pop the equivalent and check the condition
+
+
+
+class Solution {
+    public boolean isValid(String s) {
+        
+        //creating a character stack
+        Stack<Character> stack = new Stack<Character>();
+        //running a loop till all the characters are done
+        for(char str:s.toCharArray()){
+        //checking if the character equals '('
+            if(str == '(')
+                stack.push(')');
+        //checking if the character equals '{'
+            else if(str == '{')
+                stack.push('}');
+        //checking if the character equals '['
+            else if(str == '[')
+                stack.push(']');
+        //checking if the stack is empty or if the popped character is not equal to the character present in the charArray.
+            else if(stack.isEmpty() || stack.pop()!=str)
+                return false;
+        }
+        return stack.isEmpty();
+        
+    }
+}
